@@ -53,7 +53,7 @@ namespace ConsoleApp1
 			}
 
 			// Validate and process the order
-			if(order != null && order.OrderLineItems != null)
+			if (order != null && order.OrderLineItems != null)
 			{
 				var orderProcessor = new OrderProcessor();
 				orderProcessor.Process(order);
@@ -70,13 +70,13 @@ namespace ConsoleApp1
 		public static void FluidMethod()
 		{
 			OrderEngine orderEngineTaxing = OrderEngine
-										.Initialize()
-										.Customer(56789)
-										.Using(new TaxCalculatorV2())
-										.AddValidateFunction(x => x.ApplicableTax > 0)
-										.AddLineItem(new OrderLineItem { ProductId = 123, Quantity = 8, UnitPrice = 143 })
-										.AddLineItem(new OrderLineItem { ProductId = 456, Quantity = 25, UnitPrice = 373 })
-										.Process();
+				.Initialize()
+				.Customer(56789)
+				.Using(new TaxCalculatorV2())
+				.AddValidateFunction(x => x.ApplicableTax > 0)
+				.AddLineItem(new OrderLineItem { ProductId = 123, Quantity = 8, UnitPrice = 143 })
+				.AddLineItem(new OrderLineItem { ProductId = 456, Quantity = 25, UnitPrice = 373 })
+				.Process();
 
 			var order = orderEngineTaxing.Order;
 
